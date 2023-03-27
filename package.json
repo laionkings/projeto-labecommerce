@@ -1,0 +1,28 @@
+{
+  "name": "projeto-labecommerce",
+  "version": "1.0.0",
+  "description": "Projeto-backend",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev src/index.ts",
+    "start": "tsc && node build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laionkings/projeto-labecommerce.git"
+  },
+  "keywords": [
+    "backend"
+  ],
+  "author": "Laion Pereira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laionkings/projeto-labecommerce/issues"
+  },
+  "homepage": "https://github.com/laionkings/projeto-labecommerce#readme",
+  "devDependencies": {
+    "@types/node": "^18.15.10",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {}
+}
