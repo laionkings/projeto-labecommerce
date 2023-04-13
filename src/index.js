@@ -1,17 +1,19 @@
-app.get('/users', (req, res) => {
-    const query = 'SELECT * FROM users;';
-    db.query(query, (err, result) => {
-      if (err) throw err;
-      res.json(result);
-    });
-  });
-  
+const express = require('express');
+const db = require('./models/db');
 
-  app.get('/products', (req, res) => {
-    const query = 'SELECT * FROM products;';
-    db.query(query, (err, result) => {
-      if (err) throw err;
-      res.json(result);
-    });
-  });
-  
+const app = express();
+
+app.get('/:resource', async (req, res) => {
+  try {
+    const resource = req.params.resource;
+    const data = await db(resource).select('*');
+    res.status(200).json(data);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
